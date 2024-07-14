@@ -46,19 +46,23 @@ update edge
 upsert edge
 在TAG的INSERT语句中写入List
 
-插入一维list;创建player属性ids必须是一维的list<int>
+插入一维list;
+创建player属性ids必须是一维的list<int>
 INSERT VERTEX player(name, age, ids) VALUES "player100":("jimmy", 27, [1, 2, 3]);
 
-插入二维list；创建player属性ids必须是二维的list<list<int>
+插入二维list；
+创建player属性ids必须是二维的list<list<int>
 INSERT VERTEX player(name, age, ids) VALUES "player100":("jimmy", 27, [[1, 2, 3], [4, 5], [6]]);
 在TAG的插入语句中写入Set
 这里比较特殊的情况，由于List在命令行中可以直接用[]来表示，而Set需要区分开，这里我们设计由<>来表示Set容器
 
-插入一维set;创建player属性ids必须是一维的Set<int>
+插入一维set;
+创建player属性ids必须是一维的Set<int>
 INSERT VERTEX player(name, age, ids) VALUES "player100":("jimmy", 27, <1, 2, 3>)
 
 
-插入二维set；创建player属性ids必须是二维的Set<Set<int>
+插入二维set；
+创建player属性ids必须是二维的Set<Set<int>
 INSERT VERTEX player(name, age, ids) VALUES "player100":("jimmy", 27, <<1, 2, 3>, <4, 5>, <6>>);
 set的插入数据中如果有重复数据，应该返回报错
 INSERT VERTEX player(name, age, ids) VALUES "player100":("jimmy", 27, <1, 2, 2>);
